@@ -22,11 +22,11 @@
         </h3>
 
         <div className="space-y-6 text-base md:text-lg">
-          <p>📧 <strong>Email:</strong> growferry@gmail.com</p>
+          <p><strong>Email:</strong> growferry@gmail.com</p>
 
-          <p>📱 <strong>Phone:</strong> +91 8714181898</p>
+          <p><strong>Phone:</strong> +91 8714181898</p>
 
-          <p>📍 <strong>Location:</strong> Kerala, India</p>
+          <p><strong>Location:</strong> Kerala, India</p>
         </div>
       </div>
 
