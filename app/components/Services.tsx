@@ -29,7 +29,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="scroll-mt-24 min-h-screen bg-gray-50 py-20 px-6 md:px-10"
+      className="scroll-mt-24 py-20 bg-gray-50 py-20 px-6 md:px-10"
     >
       <div className="max-w-6xl mx-auto">
         <motion.h2

@@ -2,7 +2,7 @@
   return (
  <section
   id="contact"
-  className="scroll-mt-24 min-h-screen bg-gray-900 text-white py-20 px-6 md:px-10"
+  className="scroll-mt-24 py-20 bg-gray-900 text-white py-20 px-6 md:px-10"
 >
   <div className="max-w-6xl mx-auto">
 

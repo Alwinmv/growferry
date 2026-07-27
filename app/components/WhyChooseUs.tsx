@@ -45,7 +45,7 @@ export default function WhyChooseUs() {
   return (
     <section
       id="work"
-      className="scroll-mt-24 min-h-screen bg-white py-20 px-6 md:px-10"
+      className="scroll-mt-24 py-20 bg-white py-20 px-6 md:px-10"
     >
       <div className="max-w-6xl mx-auto">
 

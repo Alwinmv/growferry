@@ -6,7 +6,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="scroll-mt-24 min-h-screen bg-gray-50 py-20 px-6 md:px-10 flex items-center"
+      className="scroll-mt-24 py-20 bg-gray-50 py-20 px-6 md:px-10 flex items-center"
     >
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
 
