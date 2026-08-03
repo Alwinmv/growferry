@@ -83,19 +83,25 @@ export default function Hero() {
           and digital experiences that convert visitors into customers.
         </motion.p>
 
-        <motion.button
-          className="mt-8 bg-black text-white px-8 py-4 rounded-xl shadow-2xl transition-all duration-300"
-          whileHover={{
-            scale: 1.03,
-            y: -2,
-            boxShadow: "0px 18px 40px rgba(77,77,77,0.25)",
-          }}
-          whileTap={{
-            scale: 0.96,
-          }}
-        >
-          Book a Free Consultation
-        </motion.button>
+      <a
+  href="https://wa.me/918714181898?text=Hi%20Growferry!%20I%20would%20like%20to%20book%20a%20free%20consultation."
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <motion.button
+    className="mt-8 bg-black text-white px-8 py-4 rounded-xl shadow-2xl transition-all duration-300"
+    whileHover={{
+      scale: 1.03,
+      y: -2,
+      boxShadow: "0px 18px 40px rgba(77,77,77,0.25)",
+    }}
+    whileTap={{
+      scale: 0.96,
+    }}
+  >
+    Book a Free Consultation
+  </motion.button>
+</a>
       </div>
     </motion.section>
   );
