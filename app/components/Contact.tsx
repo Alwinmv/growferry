@@ -33,19 +33,21 @@ export default function Contact() {
       body: JSON.stringify(form),
     });
 
-    const data = await res.json();
+   const data = await res.json();
 
-    if (res.ok) {
-      setStatus("✅ Message sent successfully!");
-      setForm({
-        name: "",
-        email: "",
-        message: "",
-      });
-    } else {
-      setStatus("❌ Failed to send message.");
-    }
+console.log("API Response:", data);
 
+if (res.ok && data.success && !data.resend?.error) {
+  setStatus("✅ Message sent successfully!");
+  setForm({
+    name: "",
+    email: "",
+    message: "",
+  });
+} else {
+  console.log("API Error:", data);
+  setStatus("❌ Failed to send message.");
+}
     setLoading(false);
   };
 

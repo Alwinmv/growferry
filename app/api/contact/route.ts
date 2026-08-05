@@ -27,6 +27,7 @@ export async function POST(req: Request) {
       success: true,
       resend: data,
     });
+
   } catch (error) {
     console.error("RESEND ERROR:", error);
 
