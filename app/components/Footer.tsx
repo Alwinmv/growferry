@@ -29,35 +29,21 @@ export default function Footer() {
 
 
 
-{/* Top Button */}
-
+{/*
 <a
-
   href="#home"
-
-  className="fixed bottom-24 right-6 bg-black/70 text-white w-12 h-12 rounded-full shadow-lg hover:bg-gray-800 transition flex items-center justify-center text-xl z-50" 
-
+  className="fixed bottom-24 right-6 bg-black/70 text-white w-12 h-12 rounded-full shadow-lg hover:bg-gray-800 transition flex items-center justify-center text-xl z-50"
 >
-
   ↑
-
 </a>
-
-
-
-{/* Bottom Button */}
 
 <a
-
   href="#footer"
-
-  className="fixed bottom-8 right-6 bg-black/70 text-white w-12 h-12 rounded-full shadow-lg hover:bg-gray-800 transition flex items-center justify-center text-xl z-50" 
-
+  className="fixed bottom-8 right-6 bg-black/70 text-white w-12 h-12 rounded-full shadow-lg hover:bg-gray-800 transition flex items-center justify-center text-xl z-50"
 >
-
   ↓
-
 </a>
+*/}
  </>
   );
 }

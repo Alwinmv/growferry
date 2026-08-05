@@ -21,11 +21,20 @@ export async function POST(req: Request) {
       `,
     });
 
-    return NextResponse.json(data);
+    console.log("RESEND RESPONSE:", data);
+
+    return NextResponse.json({
+      success: true,
+      resend: data,
+    });
   } catch (error) {
-    console.error(error);
+    console.error("RESEND ERROR:", error);
+
     return NextResponse.json(
-      { error: "Failed to send email" },
+      {
+        success: false,
+        error: String(error),
+      },
       { status: 500 }
     );
   }
