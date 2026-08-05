@@ -21,7 +21,7 @@ export async function POST(req: Request) {
       `,
     });
 
-    console.log("RESEND RESPONSE:", data);
+    console.dir(data, { depth: null });
 
     return NextResponse.json({
       success: true,
