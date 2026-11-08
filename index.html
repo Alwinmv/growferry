@@ -352,10 +352,9 @@ if(document.getElementById('hp').value)return;
 if(!n.value.trim()||!/^\S+@\S+\.\S+$/.test(e.value)||!m.value.trim()){say('Please add your name, a valid email and a short message.','err');return;}
 var name=n.value.trim();b.disabled=true;b.textContent='Sending…';
 function fail(){say('Sorry, that did not go through. Please email us at '+MAIL+'.','err')}
-fetch('https://formsubmit.co/ajax/'+MAIL,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
-body:JSON.stringify({name:name,email:e.value.trim(),message:m.value.trim(),_subject:'New enquiry from the Growferry website',_template:'table',_captcha:'false'})})
-.then(function(r){return r.json()}).then(function(d){
-if(d&&(d.success===true||d.success==='true')){say('Thanks, '+name+'! We have your message and will reply within two working days.');f.reset()}else fail()})
+fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name,email:e.value.trim(),message:m.value.trim(),website:document.getElementById('hp').value})})
+.then(function(r){return r.json().catch(function(){return {}}).then(function(d){return {ok:r.ok,d:d}})}).then(function(x){
+if(x.ok&&x.d.ok){say('Thanks, '+name+'! We have your message and will reply within two working days.');f.reset()}else fail()})
 .catch(fail).then(function(){b.disabled=false;b.textContent='Send'});
 });
 </script>
