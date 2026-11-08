@@ -304,6 +304,7 @@ header.open .mb i{display:none}header.open .mb::after{content:"\00d7";font:400 2
 <div class="bt">Have an idea? Let's build something great together.</div>
 <input id="n" placeholder="Your name" autocomplete="name" aria-label="Your name" required>
 <input id="e" type="email" placeholder="Email address" autocomplete="email" aria-label="Email address" required>
+<input id="p" type="tel" placeholder="Mobile number" autocomplete="tel" inputmode="tel" aria-label="Mobile number" required>
 <textarea id="m" placeholder="Your message" aria-label="Your message" required></textarea>
 <input class="hp" id="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
 <button class="send" type="submit">Send</button>
@@ -380,16 +381,20 @@ addEventListener('scroll',sc,{passive:true});sc();
 var MAIL='growferry@gmail.com';
 document.getElementById('f').addEventListener('submit',function(ev){
 ev.preventDefault();
-var n=document.getElementById('n'),e=document.getElementById('e'),m=document.getElementById('m'),o=document.getElementById('msg'),b=this.querySelector('.send'),f=this;
+var n=document.getElementById('n'),e=document.getElementById('e'),p=document.getElementById('p'),m=document.getElementById('m'),o=document.getElementById('msg'),b=this.querySelector('.send'),f=this;
+// var n=document.getElementById('n'),e=document.getElementById('e'),m=document.getElementById('m'),o=document.getElementById('msg'),b=this.querySelector('.send'),f=this;
 function say(t,c){var d=document.createElement('div');d.className='bt pop '+(c||'');d.textContent=t;o.appendChild(d)}
 o.innerHTML='';
 if(document.getElementById('hp').value)return;
-if(!n.value.trim()||!/^\S+@\S+\.\S+$/.test(e.value)||!m.value.trim()){say('Please add your name, a valid email and a short message.','err');return;}
+var ph=p.value.replace(/[\s\-()]/g,'');
+if(!n.value.trim()||!/^\S+@\S+\.\S+$/.test(e.value)||!/^\+?\d{8,15}$/.test(ph)||!m.value.trim()){say('Please add your name, a valid email, a mobile number and a short message.','err');return;}
+// if(!n.value.trim()||!/^\S+@\S+\.\S+$/.test(e.value)||!m.value.trim()){say('Please add your name, a valid email and a short message.','err');return;}
 var name=n.value.trim();b.disabled=true;b.textContent='Sending…';
 function fail(){say('Sorry, that did not go through. Please email us at '+MAIL+'.','err')}
-fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name,email:e.value.trim(),message:m.value.trim(),website:document.getElementById('hp').value})})
+ body:JSON.stringify({name:name,email:e.value.trim(),phone:ph,message:m.value.trim(),website:document.getElementById('hp').value})
+// fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name,email:e.value.trim(),message:m.value.trim(),website:document.getElementById('hp').value})})
 .then(function(r){return r.json().catch(function(){return {}}).then(function(d){return {ok:r.ok,d:d}})}).then(function(x){
-if(x.ok&&x.d.ok){say('Thanks, '+name+'! We have your message and will reply within two working days.');f.reset()}else fail()})
+if(x.ok&&x.d.ok){say('Thanks, '+name+'! We have your message and will get back to you shortly.');f.reset()}else fail()})
 .catch(fail).then(function(){b.disabled=false;b.textContent='Send'});
 });
 </script>
